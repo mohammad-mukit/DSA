@@ -77,22 +77,45 @@
 #########################################
 
 
-given_array = [2,5,10,7,8,10]
+# given_array = [2,5,10,7,8,10]
 
-target_sum = 35
+# target_sum = 35
 
-def subarr_sum(arr,sum):
-    length = len(arr)
-    temp = 0
-    for i in range(length):
-        temp = arr[i]
-        if temp == sum:
-            pass
-            return f'Sum found at index {i}, which is {arr[i]}'
-        for j in range(i+1,length):
-            temp += arr[j]
-            if temp == sum:
-                return f'Sum found index between {i} to {j}, which is {arr[i:j+1]}'
-    return 'sum amount not exists'
+# def subarr_sum(arr,sum):
+#     length = len(arr)
+#     temp = 0
+#     for i in range(length):
+#         temp = arr[i]
+#         if temp == sum:
+#             pass
+#             return f'Sum found at index {i}, which is {arr[i]}'
+#         for j in range(i+1,length):
+#             temp += arr[j]
+#             if temp == sum:
+#                 return f'Sum found index between {i} to {j}, which is {arr[i:j+1]}'
+#     return 'sum amount not exists'
 
-print(subarr_sum(given_array,target_sum))
+# print(subarr_sum(given_array,target_sum))
+
+##subarray using given sum using sliding window
+# given_array = [15,10,2,8,20]
+
+# def subarrsum(arr,targetsum):
+#     length = len(arr)
+#     start = 0
+#     cursum = arr[0]
+#     i = 1
+#     while i <= length:
+#         while cursum > targetsum:
+#             cursum = cursum - arr[start]
+#             start +=1
+#         if cursum == targetsum:
+#             return f'Subarray foun between {start} to {i-1} which is {arr[start:i]}'
+#         if cursum < targetsum:
+#             cursum = cursum + arr[i]
+
+#         i +=1
+#     return 'Subarray not exists'
+    
+# print(subarrsum(given_array,20))
+
