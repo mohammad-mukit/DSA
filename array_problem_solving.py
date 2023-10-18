@@ -119,3 +119,106 @@
     
 # print(subarrsum(given_array,20))
 
+#############################################################
+# maximum sum of n consecutive elements of and array using sliding window
+
+# given_array = [10,12,23,20,22,40,15,20]
+# window_size = 3
+
+# def maxsum(arr,size):
+#     length  = len(arr)
+#     window_sum = sum(arr[:size])
+#     maximum_sum = window_sum
+#     elements = []
+#     for i in range(length-size):
+#         window_sum = window_sum - arr[i] + arr[i + size]
+#         if maximum_sum >= window_sum:
+#             continue
+#         else:
+#             maximum_sum = window_sum
+#             elements = arr[i+1:i+size+1]
+#     return f'Maximum some of {size} consecutive elements of the array is {maximum_sum} elements are {elements}'
+
+# print(maxsum(given_array,window_size))
+
+
+#############################################################
+###array medium ploblem solving
+
+## roate array by n element
+# given_array = [1,2,3,4,5]
+# n = 2
+# new_array = given_array[len(given_array)-n:] + given_array[:len(given_array)-n] 
+# print(new_array)
+
+# #rotate array by one element
+# temp = given_array[len(given_array)-1]
+# for i in range(len(given_array)-1,0,-1):
+#     given_array[i] = given_array[i-1]
+
+# given_array[0] = temp
+# print(given_array)
+
+
+########################################
+## finding missing number from array ranging 1-n, where length off array is n-1.
+## thter are many ways to solve this but i prefer cyclic sort tecnique
+
+# given_array = [2,4,1,3,6]
+
+# def findmissingnum(arr):
+#     length = len(arr)
+#     i = 0
+
+#     while i < length:
+#         correc_position = arr[i] - 1
+#         if arr[i] < length and arr[i] != arr[correc_position]:
+#             arr[i],arr[correc_position] = arr[correc_position],arr[i]
+#         else:
+#             i += 1
+
+#     for i in range(length):
+#         if arr[i] != i + 1:
+#             return i + 1
+
+# print(f'the missing number is {findmissingnum(given_array)}')
+
+###########################################
+## Count pairs with given sum in an array
+
+# given_array = [1,5,7,-1,5]
+# given_sum = 6
+
+# def countpairs(arr,sum):
+#     count = 0
+#     for i in range(len(arr)):
+#         for j in range(i+1,len(arr)):
+#             if arr[i] + arr[j] == sum:
+#                 count += 1
+#             else:
+#                 continue
+#     return count
+
+# print(f'Number of pairs with sum {given_sum} are {countpairs(given_array,given_sum)}')
+
+##############################################
+
+### Count pairs with given sum in an array hashing technique
+# given_array = [1,5,7,-1,5,1]
+# given_sum = 6
+
+# def countpairs(arr,sum):
+#     countlist = {}
+#     count = 0
+#     for i in range(len(arr)):
+#         if sum - arr[i] in countlist:
+#             count += countlist[sum - arr[i]]
+#         if arr[i] in countlist:
+#             countlist[arr[i]] += 1
+#         else:
+#             countlist[arr[i]] = 1
+#     print(countlist)
+#     return count
+# print(f'Number of pairs with sum {given_sum} are {countpairs(given_array,given_sum)}')
+
+##################################################
