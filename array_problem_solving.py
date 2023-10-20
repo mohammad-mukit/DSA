@@ -217,8 +217,37 @@
 #             countlist[arr[i]] += 1
 #         else:
 #             countlist[arr[i]] = 1
-#     print(countlist)
 #     return count
 # print(f'Number of pairs with sum {given_sum} are {countpairs(given_array,given_sum)}')
 
 ##################################################
+
+## fruits into basket sliding window
+
+given_array = [1,2,3,4,2,3,2,3,3,3,2,2,4,4,5,5]
+
+def fruitsintobasket(arr):
+    l = 0
+    maxfruits = 0
+    result = 0
+    fruitslist = {}
+
+    for i in range(len(arr)):
+        if arr[i] in fruitslist:
+            fruitslist[arr[i]] += 1
+            maxfruits += 1
+        else:
+            fruitslist[arr[i]] = 1
+            maxfruits +=1
+        while len(fruitslist) > 2:
+            f = arr[l]
+            fruitslist[f] -=1 
+            maxfruits -=1
+            l += 1
+            if not fruitslist[f]:
+                fruitslist.pop(f)
+            
+        result = max(result,maxfruits)
+    return result
+
+print(fruitsintobasket(given_array))
