@@ -224,30 +224,50 @@
 
 ## fruits into basket sliding window
 
-given_array = [1,2,3,4,2,3,2,3,3,3,2,2,4,4,5,5]
+# given_array = [1,2,3,4,2,3,2,3,3,3,2,2,4,4,5,5]
 
-def fruitsintobasket(arr):
-    l = 0
-    maxfruits = 0
-    result = 0
-    fruitslist = {}
+# def fruitsintobasket(arr):
+#     l = 0
+#     maxfruits = 0
+#     result = 0
+#     fruitslist = {}
 
-    for i in range(len(arr)):
-        if arr[i] in fruitslist:
-            fruitslist[arr[i]] += 1
-            maxfruits += 1
-        else:
-            fruitslist[arr[i]] = 1
-            maxfruits +=1
-        while len(fruitslist) > 2:
-            f = arr[l]
-            fruitslist[f] -=1 
-            maxfruits -=1
-            l += 1
-            if not fruitslist[f]:
-                fruitslist.pop(f)
+#     for i in range(len(arr)):
+#         if arr[i] in fruitslist:
+#             fruitslist[arr[i]] += 1
+#             maxfruits += 1
+#         else:
+#             fruitslist[arr[i]] = 1
+#             maxfruits +=1
+#         while len(fruitslist) > 2:
+#             f = arr[l]
+#             fruitslist[f] -=1 
+#             maxfruits -=1
+#             l += 1
+#             if not fruitslist[f]:
+#                 fruitslist.pop(f)
             
-        result = max(result,maxfruits)
-    return result
+#         result = max(result,maxfruits)
+#     return result
 
-print(fruitsintobasket(given_array))
+# print(fruitsintobasket(given_array))
+
+################################################
+
+## find duplicate from a given array within a range n.
+## this is the brute force way
+
+# given_array = [1,2,3,6,3,6,1]
+
+# def findduplicate(arr):
+#     temp = []
+#     temp2 = []
+#     for i in range(len(given_array)):
+#         if arr[i] in temp:
+#             temp2.append(arr[i])
+#         else:
+#             temp.append(arr[i])
+#     temp2.sort()
+#     return temp2
+# print(findduplicate(given_array))
+##################################################
