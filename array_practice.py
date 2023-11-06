@@ -72,3 +72,78 @@
 # print(primenumber)
 
 ########################################################
+## program of a game scoreboard record
+## useful concept of array based sequence dsa
+
+class gameEntry:
+    def __init__(self,name,score) -> None:
+        self._name = name
+        self._score = score
+
+    def get_name(self):
+        return self._name
+    
+    def get_score(self):
+        return self._score
+    
+    def get_profile(self):
+        return f'{self._name} {self._score}'
+    
+    #### this is a very special method __str__ in python. learn it carefully.
+    ## works with the below class comment code
+    # def __str__(self):
+    #     return f'{self._name} {self._score}'
+    
+    
+
+class scoreBoard:
+    def __init__(self,capacity) -> None:
+        self._board = [None] * capacity
+        self._n = 0
+   
+
+    def addScore(self,object):
+        score = object.get_score()
+
+        isValidScore = self._n < len(self._board) or score > self._board[-1].get_score()
+
+        if isValidScore:
+            if self._n < len(self._board):
+                self._n += 1
+            
+            j = self._n - 1
+
+            while j > 0 and score > self._board[j-1].get_score():
+                self._board[j] = self._board[j-1]
+                j -= 1
+            self._board[j] = object
+
+    
+    def get_info(self):
+        for i in range(self._n):
+            print(self._board[i].get_profile())
+
+    #### this is a very special method __str__ in python. learn it carefully.
+    ### below code works only with the above class comment part 
+    # def __str__(self):
+    #     return '\n'.join(str(self._board[j])for j in range(self._n))
+    
+
+p1 = gameEntry('Mukit',500)
+p2 = gameEntry('Naima',600)
+p3 = gameEntry('Rafat',700)
+p4 = gameEntry('Raiyan',400)
+p5 = gameEntry('Tahmid',550)
+p6 = gameEntry('Tanya',950)
+# print(p1.__str__())
+
+s1 = scoreBoard(5)
+
+s1.addScore(p1)
+s1.addScore(p2)
+s1.addScore(p3)
+s1.addScore(p4)
+s1.addScore(p5)
+s1.addScore(p6)
+
+print(s1.get_info())

@@ -164,7 +164,7 @@
 ## finding missing number from array ranging 1-n, where length off array is n-1.
 ## thter are many ways to solve this but i prefer cyclic sort tecnique
 
-# given_array = [2,4,1,3,6]
+# given_array = [1,2,3,4,6]
 
 # def findmissingnum(arr):
 #     length = len(arr)
@@ -271,3 +271,28 @@
 #     return temp2
 # print(findduplicate(given_array))
 ##################################################
+
+##find all the duplicate number in an array which containg 1-n numbers ... cyclic sort 
+
+# given_array = [1,2,3,6,3,6,1]
+
+# def findduplicate(arr):
+#     length = len(arr)
+#     i = 0
+#     duplicates = []
+#     while i < length:
+#         correct_pos = arr[i] - 1
+#         if arr[i] != i + 1:
+#             if arr[i] == arr[correct_pos]:
+#                 if arr[i] not in duplicates:
+#                     duplicates.append(arr[i])
+#                 i += 1
+#             else:
+#                 arr[i],arr[correct_pos] = arr[correct_pos],arr[i]
+#         else:
+#             i += 1
+
+#     return duplicates[::-1]
+
+# print(findduplicate(given_array))
+#######################################################
